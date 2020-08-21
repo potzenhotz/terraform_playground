@@ -2,6 +2,9 @@ resource "aws_subnet" "example_machine" {
   cidr_block        = cidrsubnet(aws_vpc.example_machine.cidr_block, 3, 1)
   vpc_id            = aws_vpc.example_machine.id
   availability_zone = local.subnet_region
+  tags = {
+    Name = "example_machine"
+  }
 }
 resource "aws_route_table" "example_machine" {
   vpc_id = aws_vpc.example_machine.id

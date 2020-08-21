@@ -3,12 +3,15 @@ resource "aws_vpc" "example_machine" {
   enable_dns_hostnames = true
   enable_dns_support   = true
   tags = {
-    Name = "aws_example"
+    Name = "example_machine"
   }
 }
 resource "aws_eip" "example_machine" {
   instance = aws_instance.example_machine.id
   vpc      = true
+  tags = {
+    Name = "example_machine"
+  }
 }
 
 
